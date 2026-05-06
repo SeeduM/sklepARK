@@ -27,12 +27,21 @@
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   color: var(--text-primary);
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   border-radius: 8px;
   font-size: 1.2rem;
   line-height: 1;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.close:hover {
+  border-color: var(--accent);
+  background: var(--bg-card-hover);
 }
 
 .image {
@@ -62,7 +71,7 @@
 }
 
 .stat { display: flex; flex-direction: column; gap: 0.15rem; font-size: 0.85rem; }
-.statLabel { color: var(--text-muted); font-size: 0.75rem; }
+.statLabel { color: var(--text-muted); font-size: 0.8rem; }
 .mut { color: var(--accent-light); }
 .base { color: var(--text-muted); }
 

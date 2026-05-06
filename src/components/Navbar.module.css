@@ -16,12 +16,18 @@
   gap: 0.5rem;
 }
 
-.logoIcon { font-size: 1.5rem; }
+.logoIcon {
+  display: flex;
+  align-items: center;
+  color: var(--accent-light);
+}
 
 .logoText {
   font-size: 1.4rem;
   font-weight: 700;
+  font-family: var(--font-heading);
   color: var(--text-primary);
+  letter-spacing: 0.05em;
 }
 
 .accent { color: var(--accent-light); }

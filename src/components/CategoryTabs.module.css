@@ -24,6 +24,11 @@
   color: var(--text-primary);
 }
 
+.tab:focus-visible {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
 .active {
   background: var(--accent);
   border-color: var(--accent);

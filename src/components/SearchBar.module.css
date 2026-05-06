@@ -6,10 +6,10 @@
   border-radius: 8px;
   font-size: 0.9rem;
   font-family: var(--font);
-  width: 260px;
+  width: min(260px, 100%);
   transition: border-color 0.2s ease;
-  outline: none;
 }
 
 .input:focus { border-color: var(--accent); }
+.input:focus:not(:focus-visible) { outline: none; }
 .input::placeholder { color: var(--text-muted); }

@@ -34,7 +34,7 @@ export default function ProductModal({ product, category, onClose }) {
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.modal} onClick={e => e.stopPropagation()}>
-        <button className={styles.close} onClick={onClose}>×</button>
+        <button className={styles.close} onClick={onClose} aria-label="Zamknij">×</button>
         <img
           src={product.image_url || '/images/placeholder.jpg'}
           alt={product.name}
@@ -63,9 +63,9 @@ export default function ProductModal({ product, category, onClose }) {
           {product.description && <p className={styles.desc}>{product.description}</p>}
 
           <button className={styles.copyBtn} onClick={handleCopy}>
-            📋 Kopiuj zamówienie
+            Kopiuj zamówienie
           </button>
-          {toast && <p className={styles.toast}>✅ Skopiowano! Wklej na Discord.</p>}
+          {toast && <p className={styles.toast}>Skopiowano! Wklej na Discord.</p>}
         </div>
       </div>
     </div>

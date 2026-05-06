@@ -16,6 +16,7 @@
 }
 
 .btn:hover { border-color: var(--accent-light); color: var(--text-primary); }
+.btn:focus-visible { border-color: var(--accent-light); color: var(--text-primary); }
 
 .active {
   background: var(--accent-glow);
