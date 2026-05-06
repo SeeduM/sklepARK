@@ -5,19 +5,26 @@
 }
 
 :root {
-  --bg-primary: #0a0a0f;
-  --bg-secondary: #13131a;
-  --bg-card-hover: #1a1a24;
-  --bg-modal: #15151f;
-  --border: #2a2a3a;
+  --bg-primary: #0a0a14;
+  --bg-secondary: #12111f;
+  --bg-card: #1e1c35;
+  --bg-card-hover: #252342;
+  --bg-modal: #16142a;
+  --border: #3d2d7a;
+  --border-subtle: #2a2a3a;
   --accent: #7c3aed;
-  --accent-light: #a855f7;
-  --accent-glow: rgba(124, 58, 237, 0.2);
-  --text-primary: #f1f0ff;
+  --accent-light: #a78bfa;
+  --accent-glow: rgba(124, 58, 237, 0.3);
+  --accent-cta: #f43f5e;
+  --accent-cta-hover: #fb7185;
+  --accent-cta-glow: rgba(244, 63, 94, 0.35);
+  --text-primary: #e2e8f0;
   --text-secondary: #c4c1e0;
-  --text-muted: #8b8a9b;
+  --text-muted: #94a3b8;
   --success: #10b981;
+  --success-glow: rgba(16, 185, 129, 0.2);
   --danger: #ef4444;
+  --danger-glow: rgba(239, 68, 68, 0.2);
   --font: 'Inter', system-ui, sans-serif;
   --font-heading: 'Orbitron', sans-serif;
 }
@@ -38,6 +45,10 @@
 body {
   font-family: var(--font);
   background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(ellipse at 15% 15%, rgba(124, 58, 237, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 85%, rgba(244, 63, 94, 0.06) 0%, transparent 55%);
+  background-attachment: fixed;
   color: var(--text-primary);
   min-height: 100vh;
   line-height: 1.5;

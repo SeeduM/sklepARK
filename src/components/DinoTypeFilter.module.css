@@ -5,21 +5,33 @@
 }
 
 .btn {
-  background: transparent;
-  border: 1px solid var(--border);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   color: var(--text-muted);
-  padding: 0.35rem 0.9rem;
+  padding: 0.4rem 1rem;
   border-radius: 8px;
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  letter-spacing: 0.08em;
   transition: all 0.2s ease;
+  touch-action: manipulation;
 }
 
-.btn:hover { border-color: var(--accent-light); color: var(--text-primary); }
-.btn:focus-visible { border-color: var(--accent-light); color: var(--text-primary); }
-
-.active {
-  background: var(--accent-glow);
+.btn:hover {
   border-color: var(--accent-light);
   color: var(--accent-light);
+  background: rgba(124, 58, 237, 0.1);
+}
+
+.btn:focus-visible {
+  border-color: var(--accent-light);
+  color: var(--accent-light);
+}
+
+.active {
+  background: rgba(124, 58, 237, 0.18);
+  border-color: var(--accent-light);
+  color: var(--accent-light);
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.25);
 }

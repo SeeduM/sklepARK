@@ -8,31 +8,42 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 4px 32px rgba(124, 58, 237, 0.12);
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .logoIcon {
   display: flex;
   align-items: center;
   color: var(--accent-light);
+  filter: drop-shadow(0 0 8px rgba(167, 139, 250, 0.7));
 }
 
 .logoText {
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 900;
   font-family: var(--font-heading);
-  color: var(--text-primary);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, #f1f0ff 0%, #c4b5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.accent { color: var(--accent-light); }
+.accent {
+  background: linear-gradient(135deg, #a78bfa 0%, #f43f5e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
 .subtitle {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
+  letter-spacing: 0.03em;
 }

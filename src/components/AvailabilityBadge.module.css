@@ -1,8 +1,22 @@
 .available, .unavailable {
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.2rem 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  letter-spacing: 0.08em;
+  padding: 0.22rem 0.65rem;
   border-radius: 6px;
+  white-space: nowrap;
 }
-.available { background: rgba(16,185,129,0.15); color: var(--success); }
-.unavailable { background: rgba(239,68,68,0.15); color: var(--danger); }
+
+.available {
+  background: var(--success-glow);
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.15);
+}
+
+.unavailable {
+  background: var(--danger-glow);
+  color: var(--danger);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
