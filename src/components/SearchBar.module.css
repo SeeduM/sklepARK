@@ -1,0 +1,15 @@
+.input {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: var(--font);
+  width: 260px;
+  transition: border-color 0.2s ease;
+  outline: none;
+}
+
+.input:focus { border-color: var(--accent); }
+.input::placeholder { color: var(--text-muted); }

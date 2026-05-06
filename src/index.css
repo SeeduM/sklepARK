@@ -1,0 +1,40 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #13131a;
+  --bg-card-hover: #1a1a24;
+  --bg-modal: #15151f;
+  --border: #2a2a3a;
+  --accent: #7c3aed;
+  --accent-light: #a855f7;
+  --accent-glow: rgba(124, 58, 237, 0.2);
+  --text-primary: #f1f0ff;
+  --text-secondary: #c4c1e0;
+  --text-muted: #8b8a9b;
+  --success: #10b981;
+  --danger: #ef4444;
+  --font: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

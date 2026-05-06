@@ -1,0 +1,8 @@
+.available, .unavailable {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+.available { background: rgba(16,185,129,0.15); color: var(--success); }
+.unavailable { background: rgba(239,68,68,0.15); color: var(--danger); }
