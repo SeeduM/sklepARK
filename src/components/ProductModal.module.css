@@ -129,7 +129,16 @@
 }
 
 .stat { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.85rem; }
-.statLabel { color: var(--text-muted); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; }
+.statLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  font-family: var(--font-heading);
+}
+.statIcon { display: inline-flex; align-items: center; }
 .mut { color: var(--accent-light); font-weight: 600; }
 .base { color: var(--text-muted); }
 
