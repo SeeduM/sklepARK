@@ -17,9 +17,9 @@
   --accent: #7c3aed;
   --accent-light: #a78bfa;
   --accent-glow: rgba(124, 58, 237, 0.3);
-  --accent-cta: #f43f5e;
-  --accent-cta-hover: #fb7185;
-  --accent-cta-glow: rgba(244, 63, 94, 0.35);
+  --accent-cta: #f59e0b;
+  --accent-cta-hover: #fbbf24;
+  --accent-cta-glow: rgba(245, 158, 11, 0.35);
   --text-primary: #e2e8f0;
   --text-secondary: #c4c1e0;
   --text-muted: #94a3b8;
@@ -56,7 +56,7 @@ body {
   background-color: var(--bg-primary);
   background-image:
     radial-gradient(ellipse at 15% 15%, rgba(124, 58, 237, 0.1) 0%, transparent 55%),
-    radial-gradient(ellipse at 85% 85%, rgba(244, 63, 94, 0.06) 0%, transparent 55%);
+    radial-gradient(ellipse at 85% 85%, rgba(245, 158, 11, 0.05) 0%, transparent 55%);
   background-attachment: fixed;
   color: var(--text-primary);
   min-height: 100vh;

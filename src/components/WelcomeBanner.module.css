@@ -23,6 +23,16 @@
   50%       { opacity: 0.4; box-shadow: 0 0 2px var(--success); }
 }
 
+@keyframes avatarGlow {
+  0%, 100% { box-shadow: 0 0 8px var(--accent-glow), 0 0 0 2px var(--accent); }
+  50%       { box-shadow: 0 0 18px var(--accent-glow), 0 0 0 2px var(--accent-light); }
+}
+
+@keyframes avatarGlowGold {
+  0%, 100% { box-shadow: 0 0 8px var(--accent-cta-glow), 0 0 0 2px var(--accent-cta); }
+  50%       { box-shadow: 0 0 18px var(--accent-cta-glow), 0 0 0 2px var(--accent-cta-hover); }
+}
+
 /* ── container ───────────────────────────────────────── */
 
 .banner {
@@ -83,7 +93,7 @@
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(244,63,94,0.1) 0%, transparent 68%);
+  background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 68%);
   bottom: -90px;
   right: -60px;
   animation: pulseOrb 11s ease-in-out infinite reverse;
@@ -154,7 +164,7 @@
 }
 
 .titleAccent {
-  background: linear-gradient(135deg, #a78bfa 0%, #c4b5fd 45%, #f43f5e 100%);
+  background: linear-gradient(135deg, #a78bfa 0%, #c4b5fd 45%, #f59e0b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -195,11 +205,11 @@
 .contact {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.85rem;
   background: rgba(30,28,53,0.75);
   border: 1px solid rgba(124,58,237,0.22);
-  border-radius: 12px;
-  padding: 0.65rem 1.1rem;
+  border-radius: 14px;
+  padding: 0.75rem 1.1rem;
   transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
 }
 
@@ -209,36 +219,36 @@
   transform: translateY(-2px);
 }
 
-.contactRose {
-  border-color: rgba(244,63,94,0.2);
+.contactGold {
+  border-color: rgba(245,158,11,0.2);
 }
 
-.contactRose:hover {
-  border-color: rgba(244,63,94,0.5);
-  box-shadow: 0 0 22px rgba(244,63,94,0.15);
+.contactGold:hover {
+  border-color: rgba(245,158,11,0.5);
+  box-shadow: 0 0 22px rgba(245,158,11,0.15);
 }
 
-.contactIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
-  background: rgba(124,58,237,0.15);
-  color: var(--accent-light);
+/* ── avatars ─────────────────────────────────────────── */
+
+.avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  object-fit: cover;
   flex-shrink: 0;
+  animation: avatarGlow 3s ease-in-out infinite;
 }
 
-.contactIconRose {
-  background: rgba(244,63,94,0.12);
-  color: var(--accent-cta);
+.avatarGold {
+  animation: avatarGlowGold 3s ease-in-out infinite;
 }
+
+/* ── contact info ────────────────────────────────────── */
 
 .contactInfo {
   display: flex;
   flex-direction: column;
-  gap: 0.12rem;
+  gap: 0.1rem;
 }
 
 .role {
@@ -257,13 +267,21 @@
   letter-spacing: 0.04em;
 }
 
-.nameRose {
+.nameGold {
   color: var(--accent-cta);
+}
+
+.desc {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  max-width: 180px;
+  margin-top: 0.08rem;
 }
 
 .divider {
   width: 1px;
-  height: 3.2rem;
+  height: 4rem;
   background: linear-gradient(to bottom, transparent, var(--border), transparent);
   align-self: center;
   flex-shrink: 0;
@@ -278,7 +296,7 @@
 }
 
 .currency strong {
-  color: #f5c542;
+  color: #f59e0b;
   font-weight: 700;
 }
 
@@ -289,5 +307,7 @@
   .title { font-size: 1.3rem; }
   .divider { display: none; }
   .contacts { gap: 0.75rem; }
-  .contact { padding: 0.55rem 0.9rem; }
+  .contact { padding: 0.6rem 0.9rem; gap: 0.7rem; }
+  .avatar { width: 46px; height: 46px; }
+  .desc { max-width: 140px; }
 }

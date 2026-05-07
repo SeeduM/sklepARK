@@ -4,6 +4,13 @@
   flex-wrap: wrap;
 }
 
+.icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.3rem;
+  opacity: 0.85;
+}
+
 .btn {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);

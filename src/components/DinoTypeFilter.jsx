@@ -1,17 +1,23 @@
 import styles from './DinoTypeFilter.module.css';
-
-const TYPES = ['Wszystkie', 'WALKA', 'UŻYTKOWE', 'LATAJĄCE', 'WODNE', 'PET'];
+import { DINO_TYPES, DINO_ICONS } from '../utils/dinoTypes';
 
 export default function DinoTypeFilter({ active, onChange }) {
   return (
     <div className={styles.filters}>
-      {TYPES.map(type => (
+      <button
+        className={`${styles.btn} ${active === 'Wszystkie' ? styles.active : ''}`}
+        onClick={() => onChange('Wszystkie')}
+      >
+        Wszystkie
+      </button>
+      {DINO_TYPES.map(({ code, label }) => (
         <button
-          key={type}
-          className={`${styles.btn} ${active === type ? styles.active : ''}`}
-          onClick={() => onChange(type)}
+          key={code}
+          className={`${styles.btn} ${active === code ? styles.active : ''}`}
+          onClick={() => onChange(code)}
         >
-          {type}
+          <span className={styles.icon}>{DINO_ICONS[code]}</span>
+          {label}
         </button>
       ))}
     </div>

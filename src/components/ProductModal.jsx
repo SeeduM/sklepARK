@@ -65,7 +65,12 @@ export default function ProductModal({ product, category, onClose }) {
               <span>Poziom: <strong>{product.level}</strong></span>
             </div>
           )}
-          {product.quality && <p className={styles.detail}>Jakość: <strong>{product.quality}</strong></p>}
+          {product.quality && (
+            <p className={styles.detail}>
+              {category === 'Weapons' ? 'DMG' : (category === 'Armor' || category === 'Saddles') ? 'Armor' : category === 'Blueprints' ? 'DMG/ARM' : 'Jakość'}:{' '}
+              <strong>{product.quality}</strong>
+            </p>
+          )}
           {product.weapon_type && <p className={styles.detail}>Typ: <strong>{product.weapon_type}</strong></p>}
           {product.dino_name && <p className={styles.detail}>Dla: <strong>{product.dino_name}</strong></p>}
           {product.bp_category && <p className={styles.detail}>Kategoria: <strong>{product.bp_category}</strong></p>}
