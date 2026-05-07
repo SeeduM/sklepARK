@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { generateOrderText } from '../utils/orderText';
 import AvailabilityBadge from './AvailabilityBadge';
 import styles from './ProductModal.module.css';
@@ -22,6 +22,12 @@ function DinoStats({ p }) {
 
 export default function ProductModal({ product, category, onClose }) {
   const [toast, setToast] = useState(false);
+
+  useEffect(() => {
+    const onKey = e => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onClose]);
 
   const handleCopy = () => {
     const text = generateOrderText(product, category);
