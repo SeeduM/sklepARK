@@ -23,7 +23,12 @@ export default function ProductCard({ product, category, onClick }) {
       <div className={styles.body}>
         <h3 className={styles.name}>{product.name}</h3>
         <p className={styles.subtitle}>{getSubtitle(product, category)}</p>
-        <AvailabilityBadge available={product.available} />
+        <div className={styles.footer}>
+          <AvailabilityBadge available={product.available} />
+          <span className={styles.price}>
+            Cena: <strong>{product.price || 'z kalkulatora'}</strong>
+          </span>
+        </div>
       </div>
     </div>
   );

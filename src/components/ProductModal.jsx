@@ -46,6 +46,12 @@ export default function ProductModal({ product, category, onClose }) {
             <h2 className={styles.name}>{product.name}</h2>
             <AvailabilityBadge available={product.available} />
           </div>
+          <div className={styles.priceBox}>
+            <span className={styles.priceLabel}>Cena</span>
+            <span className={styles.priceValue}>
+              {product.price || 'z kalkulatora'}
+            </span>
+          </div>
 
           {category === 'Dinos' && (
             <div className={styles.meta}>

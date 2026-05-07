@@ -13,7 +13,7 @@ export function parseSheetData(text) {
   return rows.map(row => {
     const obj = {};
     row.c.forEach((cell, i) => {
-      obj[cols[i]] = cell ? cell.v : null;
+      obj[cols[i]] = cell ? (cell.f ?? cell.v) : null;
     });
     return obj;
   });

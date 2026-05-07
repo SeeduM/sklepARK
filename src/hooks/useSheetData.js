@@ -16,7 +16,7 @@ export function useSheetData(sheetName) {
       return;
     }
 
-    const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${sheetName}`;
+    const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${sheetName}&headers=1`;
 
     fetch(url)
       .then(res => res.text())

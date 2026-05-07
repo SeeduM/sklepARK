@@ -6,6 +6,7 @@ import SearchBar from './components/SearchBar';
 import ProductGrid from './components/ProductGrid';
 import ProductModal from './components/ProductModal';
 import { useSheetData } from './hooks/useSheetData';
+import WelcomeBanner from './components/WelcomeBanner';
 import styles from './App.module.css';
 
 const CATEGORIES = ['Dinos', 'Armor', 'Weapons', 'Blueprints', 'Services', 'Saddles'];
@@ -40,6 +41,7 @@ export default function App() {
   return (
     <>
       <Navbar />
+      <WelcomeBanner />
       <CategoryTabs active={category} onChange={handleCategoryChange} />
       <main className={styles.main}>
         <div className={styles.toolbar}>

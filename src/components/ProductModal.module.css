@@ -81,6 +81,32 @@
   letter-spacing: 0.04em;
 }
 
+.priceBox {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(245, 197, 66, 0.06);
+  border: 1px solid rgba(245, 197, 66, 0.35);
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+}
+
+.priceLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #a0896a;
+  text-transform: uppercase;
+  font-family: var(--font-heading);
+}
+
+.priceValue {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f5c542;
+  font-family: var(--font-heading);
+}
+
 .meta {
   display: flex;
   gap: 1rem;
