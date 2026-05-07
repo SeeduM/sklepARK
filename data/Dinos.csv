@@ -1,0 +1,16 @@
+name,type,level,hp_base,hp_mut,dmg_base,dmg_mut,stm_base,stm_mut,weight_base,weight_mut,image_url,available,description
+Rex,Carnivore,224,10000,20,400,20,0,0,0,0,,TRUE,Bojowy Rex z mutacjami HP i DMG. Gotowy do tame wars.
+Rex,Carnivore,228,12000,20,420,20,0,0,0,0,,TRUE,Top tier Rex — pełne mutacje ofensywne.
+Giga,Carnivore,150,80000,0,1200,0,0,0,0,0,,TRUE,Giga po tame — naturalny poziom 150. Brak mutacji.
+Therizinosaurus,Herbivore,220,9500,20,380,20,0,0,0,0,,TRUE,Theri bojowy — świetny do raidów i farm beehive.
+Spino,Carnivore,210,7000,15,350,15,1500,10,0,0,,TRUE,Spino z mutacjami HP/DMG/STM. Wodny i lądowy.
+Baryonyx,Carnivore,180,5000,10,300,10,2000,15,0,0,,TRUE,Bary do jaskiń — szybki, silny, zwinny.
+Megatherium,Herbivore,200,8000,20,320,20,0,0,0,0,,TRUE,Mega do insektów — atak bonusowy na beehive i araneo.
+Yutyrannus,Carnivore,190,7500,15,280,10,0,0,0,0,,TRUE,Yuty bojowy — buff dla sojuszników w walce.
+Shadowmane,Carnivore,200,6500,20,420,20,0,0,0,0,,TRUE,Shadowmane z mutacjami DMG. Niewidzialny predator.
+Fjordhawk,Carnivore,150,800,0,100,0,3000,20,0,0,,TRUE,Fjordhawk — ptak respawn. Zbiera loot po śmierci.
+Carcha,Carnivore,225,15000,20,500,20,0,0,0,0,,TRUE,Carcharodontosaurus — endgame dino. Max mutacje.
+Ankylosaurus,Herbivore,180,4000,10,200,5,0,0,800,20,,TRUE,Anky z weight mutacjami — farma metalu i kryształu.
+Doedicurus,Herbivore,170,3500,10,180,5,0,0,900,20,,TRUE,Doed z weight — farma kamienia i obsydianu.
+Argentavis,Carnivore,185,3000,10,250,10,0,0,500,20,,TRUE,Argy z weight — transport i farma powietrza.
+Wyvern (Fire),Carnivore,210,8000,15,380,20,0,0,0,0,,TRUE,Ognisty Wyvern — rasowy bojownik powietrzny.

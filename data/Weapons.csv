@@ -1,0 +1,16 @@
+name,weapon_type,quality,image_url,available,description
+Tek Rifle,Rifle,Ascendant,,TRUE,Karabin Tek — strzela energią. Ignoruje część pancerza.
+Tek Sword,Melee,Ascendant,,TRUE,Miecz Tek — wysoki DMG w walce wręcz.
+Tek Bow,Bow,Ascendant,,TRUE,Łuk Tek — precyzyjny, cichy, długi zasięg.
+Assault Rifle,Rifle,Mastercraft,,TRUE,AR Mastercraft — dobry DPS na raidach.
+Pump Shotgun,Shotgun,Ascendant,,TRUE,Shotgun Ascendant — zabójczy na bliskim dystansie.
+Longneck Rifle,Sniper,Ascendant,,TRUE,Longneck Ascendant — snajper. Jeden strzał jeden trup.
+Fabricated Sniper,Sniper,Mastercraft,,TRUE,Snajper fabryczny — szybszy reload niż Longneck.
+Rocket Launcher,Explosive,Mastercraft,,TRUE,Wyrzutnia rakiet — do raidów i dużych dino.
+Crossbow,Bow,Mastercraft,,TRUE,Kusza Mastercraft — cicha i skuteczna.
+Pike,Melee,Ascendant,,TRUE,Pika Ascendant — zasięg i DMG w walce pieszej.
+Club,Melee,Primitive,,TRUE,Pałka — ogłuszanie graczy i małych dino.
+Flamethrower,Special,Mastercraft,,TRUE,Miotacz ognia — ideał na rośliny i zbroje.
+Grenade,Explosive,Primitive,,TRUE,Granat — eksplozja na obszar.
+Tek Grenade,Explosive,Ascendant,,TRUE,Granat Tek — większy promień i DMG od zwykłego.
+Minigun Turret,Turret,Ascendant,,TRUE,Wieżyczka Ascendant — obrona bazy.

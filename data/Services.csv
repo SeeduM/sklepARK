@@ -1,0 +1,16 @@
+name,image_url,available,description
+Tame dino na zamówienie,,TRUE,Tamujemy dowolne dino na życzenie. Podaj gatunek i serwer.
+Mutacje na zamówienie,,TRUE,Robimy linie mutacyjne HP/DMG na zamówionym dino.
+Przeniesienie dino,,TRUE,Przenosimy dino między klastrami lub serwerami.
+Leveling dino,,TRUE,Levelujemy twoje dino do maksimum statów.
+Raid support,,TRUE,Wsparcie bojowe podczas twojego raidu — bossing i PvP.
+Boss fight (Alpha),,TRUE,Walka z bossem Alpha — dostarczamy dino i ekwipunek.
+Boss fight (Beta),,TRUE,Walka z bossem Beta — pełne wsparcie drużyny.
+Boss fight (Gamma),,TRUE,Walka z bossem Gamma — idealna na start.
+Farming surowców,,TRUE,Farma metalu, kryształu, obsydianu na zamówienie.
+Ochrona bazy,,TRUE,Ustawiamy turele i bronią bazę na czas nieobecności.
+Dostarczenie itemów,,TRUE,Dostarczymy zamówione itemy w ciągu 24h.
+Crafting Tek,,TRUE,Craftujemy komplet Tek z twoich materiałów lub naszych.
+Szkolenie PvP,,TRUE,Nauczymy cię walki PvP — taktyki, uniki, raidy.
+Starter pack,,TRUE,Paczka startowa dla nowych graczy — dino + zbroja + broń.
+VIP pack,,TRUE,Komplet VIP — top dino + full Tek + blueprinty Ascendant.
