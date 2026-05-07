@@ -7,6 +7,10 @@
   background: var(--bg-secondary);
   scrollbar-width: none;
   justify-content: center;
+  position: sticky;
+  top: var(--navbar-height);
+  z-index: 90;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
 .tabs::-webkit-scrollbar { display: none; }
