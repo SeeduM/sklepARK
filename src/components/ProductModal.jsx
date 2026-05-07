@@ -71,6 +71,12 @@ function DinoStats({ p }) {
   );
 }
 
+function getYtId(url) {
+  if (!url) return null;
+  const m = url.match(/(?:youtu\.be\/|[?&]v=)([\w-]{11})/);
+  return m ? m[1] : null;
+}
+
 export default function ProductModal({ product, category, onClose }) {
   const [toast, setToast] = useState(false);
 
@@ -129,6 +135,22 @@ export default function ProductModal({ product, category, onClose }) {
           {category === 'Dinos' && <DinoStats p={product} />}
 
           {product.description && <p className={styles.desc}>{product.description}</p>}
+
+          {getYtId(product.yt_url) && (
+            <a
+              href={product.yt_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.ytThumb}
+            >
+              <img
+                src={`https://img.youtube.com/vi/${getYtId(product.yt_url)}/hqdefault.jpg`}
+                alt="Zobacz na YouTube"
+                className={styles.ytImg}
+              />
+              <span className={styles.ytPlay} aria-hidden="true">▶</span>
+            </a>
+          )}
 
           <button className={styles.copyBtn} onClick={handleCopy}>
             Kopiuj zamówienie
