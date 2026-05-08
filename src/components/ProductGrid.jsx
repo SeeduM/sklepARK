@@ -13,7 +13,7 @@ function SkeletonCard() {
   );
 }
 
-export default function ProductGrid({ products, category, onSelect, loading, error }) {
+export default function ProductGrid({ products, category, getProductCategory, onSelect, loading, error }) {
   if (loading) return (
     <div className={styles.grid}>
       {Array.from({ length: 8 }).map((_, i) => <SkeletonCard key={i} />)}
@@ -24,9 +24,12 @@ export default function ProductGrid({ products, category, onSelect, loading, err
 
   return (
     <div className={styles.grid}>
-      {products.map(p => (
-        <ProductCard key={p.id} product={p} category={category} onClick={() => onSelect(p)} />
-      ))}
+      {products.map((p, i) => {
+        const cat = getProductCategory ? getProductCategory(p) : category;
+        return (
+          <ProductCard key={p.name + i} product={p} category={cat} onClick={() => onSelect(p)} />
+        );
+      })}
     </div>
   );
 }

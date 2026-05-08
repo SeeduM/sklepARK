@@ -6,10 +6,9 @@ import SearchBar from './components/SearchBar';
 import ProductGrid from './components/ProductGrid';
 import ProductModal from './components/ProductModal';
 import { useSheetData } from './hooks/useSheetData';
+import { useAllSheetData } from './hooks/useAllSheetData';
 import WelcomeBanner from './components/WelcomeBanner';
 import styles from './App.module.css';
-
-const CATEGORIES = ['Dinos', 'Armor', 'Weapons', 'Blueprints', 'Services', 'Saddles'];
 
 export default function App() {
   const [category, setCategory] = useState('Dinos');
@@ -17,21 +16,26 @@ export default function App() {
   const [search, setSearch] = useState('');
   const [selected, setSelected] = useState(null);
 
-  const { data, loading, error } = useSheetData(category);
+  const { data: categoryData, loading: catLoading, error } = useSheetData(category);
+  const { data: allData, loading: allLoading } = useAllSheetData();
+
+  const isSearching = search.trim().length > 0;
 
   const filtered = useMemo(() => {
-    let items = data;
+    const q = search.toLowerCase().trim();
+
+    if (isSearching) {
+      return allData.filter(p => p.name?.toLowerCase().includes(q));
+    }
+
+    let items = categoryData;
     if (category === 'Dinos' && dinoType !== 'Wszystkie') {
       items = items.filter(p =>
         p.type?.split(',').map(t => t.trim()).includes(dinoType)
       );
     }
-    if (search.trim()) {
-      const q = search.toLowerCase();
-      items = items.filter(p => p.name?.toLowerCase().includes(q));
-    }
     return items;
-  }, [data, category, dinoType, search]);
+  }, [categoryData, allData, category, dinoType, search, isSearching]);
 
   const handleCategoryChange = (cat) => {
     setCategory(cat);
@@ -40,6 +44,10 @@ export default function App() {
     setSelected(null);
   };
 
+  // Przy wyszukiwaniu kategoria produktu pochodzi z _category
+  const getProductCategory = (product) =>
+    isSearching ? (product._category || category) : category;
+
   return (
     <>
       <Navbar />
@@ -47,7 +55,7 @@ export default function App() {
       <CategoryTabs active={category} onChange={handleCategoryChange} />
       <main className={styles.main}>
         <div className={styles.toolbar}>
-          {category === 'Dinos' && (
+          {category === 'Dinos' && !isSearching && (
             <DinoTypeFilter active={dinoType} onChange={setDinoType} />
           )}
           <SearchBar value={search} onChange={setSearch} />
@@ -55,15 +63,16 @@ export default function App() {
         <ProductGrid
           products={filtered}
           category={category}
+          getProductCategory={isSearching ? getProductCategory : null}
           onSelect={setSelected}
-          loading={loading}
+          loading={isSearching ? allLoading : catLoading}
           error={error}
         />
       </main>
       {selected && (
         <ProductModal
           product={selected}
-          category={category}
+          category={getProductCategory(selected)}
           onClose={() => setSelected(null)}
         />
       )}

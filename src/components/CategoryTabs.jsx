@@ -1,12 +1,12 @@
 import styles from './CategoryTabs.module.css';
 
 const CATEGORIES = [
-  { key: 'Dinos', label: '🦖 Dinozaury' },
-  { key: 'Armor', label: '🛡️ Zbroje' },
-  { key: 'Weapons', label: '⚔️ Bronie' },
+  { key: 'Dinos',      label: '🦖 Dinozaury' },
+  { key: 'Weapons',    label: '⚔️ Bronie' },
+  { key: 'Armor',      label: '🛡️ Zbroje' },
+  { key: 'Saddles',    label: '🐎 Siodła' },
   { key: 'Blueprints', label: '📜 Blueprinty' },
-  { key: 'Services', label: '🔧 Usługi' },
-  { key: 'Saddles', label: '🐎 Siodła' },
+  { key: 'Services',   label: '🔧 Usługi' },
 ];
 
 export default function CategoryTabs({ active, onChange }) {
