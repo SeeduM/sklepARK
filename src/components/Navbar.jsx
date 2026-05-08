@@ -21,11 +21,13 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.inner}>
-        <img
-          src={`${import.meta.env.BASE_URL}images/logo_bez_bg.png`}
-          alt="Nocne Sowy — ARK Shop"
-          className={styles.logoImg}
-        />
+        <a href="https://seedum.github.io/sklepARK/" className={styles.logoLink}>
+          <img
+            src={`${import.meta.env.BASE_URL}images/logo_bez_bg.png`}
+            alt="Nocne Sowy — ARK Shop"
+            className={styles.logoImg}
+          />
+        </a>
       </div>
     </nav>
   );
