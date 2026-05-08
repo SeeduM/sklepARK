@@ -1,13 +1,12 @@
 // Generator tekstu zamówienia do wklejenia na Discord
 export function generateOrderText(product, category) {
   const sep = '━━━━━━━━━━━━━━━━━━';
+  const price = product.price ? `Cena: ${product.price}` : 'Cena: z kalkulatora';
 
   if (category === 'Dinos') {
     const mut = (base, mut) => mut ? `${base} (+${mut} mut)` : `${base} (bazowe)`;
     return `🦖 ZAMÓWIENIE - ${product.name}
 ${sep}
-Kategoria: Dinozaur
-Typ: ${product.type}
 Level: ${product.level}
 
 Statystyki:
@@ -17,6 +16,7 @@ Statystyki:
 • WAGA:  ${mut(product.weight_base, product.weight_mut)}
 
 Status: ${product.available ? 'Dostępny' : 'Niedostępny'}
+${price}
 ${sep}`;
   }
 
@@ -30,9 +30,9 @@ ${sep}`;
   if (product.dino_name) details += `\nDla dino: ${product.dino_name}`;
 
   return `${icon} ZAMÓWIENIE - ${product.name}
-${sep}
-Kategoria: ${category}${details}
+${sep}${details}
 
 Status: ${product.available ? 'Dostępny' : 'Niedostępny'}
+${price}
 ${sep}`;
 }
