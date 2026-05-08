@@ -300,6 +300,31 @@
   font-weight: 700;
 }
 
+.calcLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #f59e0b;
+  text-decoration: none;
+  border: 1px solid rgba(245,158,11,0.35);
+  background: rgba(245,158,11,0.07);
+  padding: 0.3rem 0.85rem;
+  border-radius: 8px;
+  align-self: flex-start;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  animation: fadeSlideUp 0.4s ease-out 0.5s both;
+}
+
+.calcLink:hover {
+  border-color: rgba(245,158,11,0.7);
+  background: rgba(245,158,11,0.13);
+  box-shadow: 0 0 14px rgba(245,158,11,0.25);
+}
+
 /* ── mobile ──────────────────────────────────────────── */
 
 @media (max-width: 600px) {
