@@ -3,12 +3,15 @@ import styles from './ProductCard.module.css';
 import { DINO_ICONS, getDinoLabel } from '../utils/dinoTypes';
 
 function DinoSubtitle({ type, level }) {
-  const icon = DINO_ICONS[type];
-  const label = getDinoLabel(type);
+  const codes = type ? type.split(',').map(t => t.trim()) : [];
   return (
     <span className={styles.dinoSubtitle}>
-      {icon && <span className={styles.typeIcon}>{icon}</span>}
-      {label} • Lvl {level}
+      {codes.map(code => DINO_ICONS[code] ? (
+        <span key={code} className={styles.typeIcon} title={getDinoLabel(code)}>
+          {DINO_ICONS[code]}
+        </span>
+      ) : null)}
+      Lvl {level}
     </span>
   );
 }

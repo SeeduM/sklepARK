@@ -22,7 +22,9 @@ export default function App() {
   const filtered = useMemo(() => {
     let items = data;
     if (category === 'Dinos' && dinoType !== 'Wszystkie') {
-      items = items.filter(p => p.type === dinoType);
+      items = items.filter(p =>
+        p.type?.split(',').map(t => t.trim()).includes(dinoType)
+      );
     }
     if (search.trim()) {
       const q = search.toLowerCase();

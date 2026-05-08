@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { generateOrderText } from '../utils/orderText';
 import AvailabilityBadge from './AvailabilityBadge';
 import styles from './ProductModal.module.css';
+import { DINO_ICONS, getDinoLabel } from '../utils/dinoTypes';
 
 const STAT_META = {
   HP:   {
@@ -79,9 +80,24 @@ function getYtId(url) {
 
 export default function ProductModal({ product, category, onClose }) {
   const [toast, setToast] = useState(false);
+  const [showExtra, setShowExtra] = useState(false);
+  const showExtraRef = useRef(false);
+
+  useEffect(() => { showExtraRef.current = showExtra; }, [showExtra]);
+
+  const openExtra = () => {
+    history.pushState(null, '');
+    setShowExtra(true);
+  };
+  const closeExtra = () => setShowExtra(false);
 
   useEffect(() => {
-    const onKey = e => { if (e.key === 'Escape') onClose(); };
+    const onKey = e => {
+      if (e.key === 'Escape') {
+        if (showExtraRef.current) closeExtra();
+        else onClose();
+      }
+    };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [onClose]);
@@ -92,10 +108,13 @@ export default function ProductModal({ product, category, onClose }) {
     return () => { document.body.style.overflow = ''; };
   }, []);
 
-  // Back button closes modal
+  // Back button — najpierw zamyka extra, potem modal
   useEffect(() => {
     history.pushState(null, '');
-    const onPop = () => onClose();
+    const onPop = () => {
+      if (showExtraRef.current) closeExtra();
+      else onClose();
+    };
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
   }, [onClose]);
@@ -132,7 +151,13 @@ export default function ProductModal({ product, category, onClose }) {
 
           {category === 'Dinos' && (
             <div className={styles.meta}>
-              <span>{product.type}</span>
+              <span className={styles.typeIcons}>
+                {product.type?.split(',').map(t => t.trim()).map(code => (
+                  <span key={code} className={styles.typeIcon} title={getDinoLabel(code)}>
+                    {DINO_ICONS[code] ?? code}
+                  </span>
+                ))}
+              </span>
               <span>Poziom: <strong>{product.level}</strong></span>
             </div>
           )}
@@ -166,12 +191,29 @@ export default function ProductModal({ product, category, onClose }) {
             </a>
           )}
 
+          {product.extra_img && (
+            <button className={styles.detailBtn} onClick={openExtra}>
+              Szczegóły
+            </button>
+          )}
+
           <button className={styles.copyBtn} onClick={handleCopy}>
             Kopiuj zamówienie
           </button>
           {toast && <p className={styles.toast}>Skopiowano! Wklej na Discord.</p>}
         </div>
       </div>
+
+      {showExtra && (
+        <div className={styles.extraOverlay} onClick={closeExtra}>
+          <img
+            src={product.extra_img}
+            alt="Szczegóły"
+            className={styles.extraImg}
+            onClick={closeExtra}
+          />
+        </div>
+      )}
     </div>
   );
 }
