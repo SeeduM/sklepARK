@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { generateOrderText } from '../utils/orderText';
 import AvailabilityBadge from './AvailabilityBadge';
 import styles from './ProductModal.module.css';
@@ -81,23 +81,9 @@ function getYtId(url) {
 export default function ProductModal({ product, category, onClose }) {
   const [toast, setToast] = useState(false);
   const [showExtra, setShowExtra] = useState(false);
-  const showExtraRef = useRef(false);
-
-  useEffect(() => { showExtraRef.current = showExtra; }, [showExtra]);
-
-  const openExtra = () => {
-    history.pushState(null, '');
-    setShowExtra(true);
-  };
-  const closeExtra = () => setShowExtra(false);
 
   useEffect(() => {
-    const onKey = e => {
-      if (e.key === 'Escape') {
-        if (showExtraRef.current) closeExtra();
-        else onClose();
-      }
-    };
+    const onKey = e => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [onClose]);
@@ -108,13 +94,10 @@ export default function ProductModal({ product, category, onClose }) {
     return () => { document.body.style.overflow = ''; };
   }, []);
 
-  // Back button — najpierw zamyka extra, potem modal
+  // Back button closes modal
   useEffect(() => {
     history.pushState(null, '');
-    const onPop = () => {
-      if (showExtraRef.current) closeExtra();
-      else onClose();
-    };
+    const onPop = () => onClose();
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
   }, [onClose]);
@@ -192,9 +175,31 @@ export default function ProductModal({ product, category, onClose }) {
           )}
 
           {product.extra_img && (
-            <button className={styles.detailBtn} onClick={openExtra}>
-              Szczegóły
-            </button>
+            <div className={styles.accordion}>
+              <button
+                className={styles.detailBtn}
+                onClick={() => setShowExtra(v => !v)}
+                aria-expanded={showExtra}
+              >
+                <span>Szczegóły</span>
+                <svg
+                  className={`${styles.arrow} ${showExtra ? styles.arrowOpen : ''}`}
+                  width="16" height="16" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" strokeWidth="2.5"
+                  strokeLinecap="round" strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div className={`${styles.extraPanel} ${showExtra ? styles.extraPanelOpen : ''}`}>
+                <img
+                  src={product.extra_img}
+                  alt="Szczegóły"
+                  className={styles.extraImg}
+                />
+              </div>
+            </div>
           )}
 
           <button className={styles.copyBtn} onClick={handleCopy}>
@@ -203,17 +208,6 @@ export default function ProductModal({ product, category, onClose }) {
           {toast && <p className={styles.toast}>Skopiowano! Wklej na Discord.</p>}
         </div>
       </div>
-
-      {showExtra && (
-        <div className={styles.extraOverlay} onClick={closeExtra}>
-          <img
-            src={product.extra_img}
-            alt="Szczegóły"
-            className={styles.extraImg}
-            onClick={closeExtra}
-          />
-        </div>
-      )}
     </div>
   );
 }
