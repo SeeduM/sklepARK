@@ -53,6 +53,7 @@
 
 body {
   font-family: var(--font);
+  overflow-x: hidden;
   background-color: var(--bg-primary);
   background-image:
     radial-gradient(ellipse at 15% 15%, rgba(124, 58, 237, 0.1) 0%, transparent 55%),

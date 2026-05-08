@@ -86,6 +86,20 @@ export default function ProductModal({ product, category, onClose }) {
     return () => window.removeEventListener('keydown', onKey);
   }, [onClose]);
 
+  // Scroll lock
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, []);
+
+  // Back button closes modal
+  useEffect(() => {
+    history.pushState(null, '');
+    const onPop = () => onClose();
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, [onClose]);
+
   const handleCopy = () => {
     const text = generateOrderText(product, category);
     navigator.clipboard.writeText(text).then(() => {
